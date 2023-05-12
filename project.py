@@ -20,5 +20,12 @@ client.connect(ip,port)
 client.loop_start()
 client.subscribe(topic)
 
+while True:
+    msg = input("")
+    chat = user + ": " + msg
+    client.publish(topic,chat)
+    if msg == "Stop" or msg == "stop":
+        break
+
 client.disconnect()
 client.loop_stop()
