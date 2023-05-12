@@ -17,8 +17,12 @@ client.on_connect = on_connect
 client.on_message = on_message
 client.connect(ip,port)
 
+time.sleep(1)
+
 client.loop_start()
 client.subscribe(topic)
+
+time.sleep(1)
 
 while True:
     msg = input("")
