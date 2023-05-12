@@ -11,3 +11,14 @@ def on_connect(client,userdata,flags,rc):
 def on_message(client,userdata,message):
     msg = str(message.payload.decode("utf-8"))
     print(msg)
+
+client = mqtt.Client()
+client.on_connect = on_connect
+client.on_message = on_message
+client.connect(ip,port)
+
+client.loop_start()
+client.subscribe(topic)
+
+client.disconnect()
+client.loop_stop()
